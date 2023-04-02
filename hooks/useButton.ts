@@ -12,6 +12,8 @@ export type ButtonProps<T = Element> = {
   action: (event: KeyboardEvent<T> | MouseEvent<T>) => void;
   /** Whether to set aria-disabled to true/ */
   disabled?: boolean;
+  /** If the children of the button cannot be used as a recognized name, for example, an icon, then you should provide a label of the button. */
+  label?: string;
 };
 
 type Return<T = Element> = {
@@ -21,9 +23,10 @@ type Return<T = Element> = {
   onKeyDown: KeyboardEventHandler<T>;
   onClick: MouseEventHandler<T>;
   'aria-disabled': AriaAttributes['aria-disabled'];
+  'aria-label': AriaAttributes['aria-label'];
 };
 
-export function useButton<T = Element>({ action, disabled }: ButtonProps<T>): Return<T> {
+export function useButton<T = Element>({ action, disabled, label }: ButtonProps<T>): Return<T> {
   const handleKeyUp: KeyboardEventHandler<T> = event => {
     if (event.key === ' ') {
       action(event);
@@ -47,5 +50,6 @@ export function useButton<T = Element>({ action, disabled }: ButtonProps<T>): Re
     onKeyDown: handleKeyDown,
     onClick: handleClick,
     'aria-disabled': disabled ? true : undefined,
+    'aria-label': label,
   };
 }
