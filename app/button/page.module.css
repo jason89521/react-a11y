@@ -1,0 +1,25 @@
+.container {
+  height: 100vh;
+  background-color: #fff;
+  color: #000;
+  display: flex;
+  padding-top: 60px;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  gap: 40px;
+}
+
+.action {
+  border: 2px solid #333;
+  border-radius: 16px;
+  padding: 5px 10px;
+}
+
+.action:hover {
+  background-color: #eee;
+}
+
+.action:focus {
+  background-color: #999;
+}

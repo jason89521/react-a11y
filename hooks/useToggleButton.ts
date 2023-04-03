@@ -15,9 +15,9 @@ export function useToggleButton<T = Element>({
   const [isPressed, setIsPressed] = useState(defaultPressed);
   const handleAction = (event: MouseEvent<T> | KeyboardEvent<T>) => {
     setIsPressed(!isPressed);
-    action(event);
+    action?.(event);
   };
-  const rawButtonProps = useButton({ action: handleAction, ...props });
+  const { buttonProps: rawButtonProps } = useButton({ action: handleAction, ...props });
   const buttonProps = { ...rawButtonProps, 'aria-pressed': isPressed };
 
   return {
