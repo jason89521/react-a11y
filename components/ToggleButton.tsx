@@ -9,5 +9,5 @@ export function ToggleButton() {
     },
   });
 
-  return <div {...buttonProps}>Toggle button</div>;
+  return <button {...buttonProps}>Toggle button</button>;
 }
